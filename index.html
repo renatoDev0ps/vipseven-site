@@ -5,226 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VIP SEVEN — Exclusive Commerce</title>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Instrument+Sans:ital,wght@0,300;0,400;0,600&family=Lora:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#0A0F1E;--sapph:#1B3A6B;--gold:#C9A84C;--gold2:#E8C96D;
-  --ivory:#F5F0E8;--bone:#B8A990;--mid:#0E1929;--deep:#060B14;
-  --silver:#B8BEC8;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--navy);color:var(--ivory);font-family:'Instrument Sans',sans-serif;font-weight:300;overflow-x:hidden;}
-
-/* grid bg */
-body::before{content:'';position:fixed;inset:0;
-  background-image:linear-gradient(rgba(27,58,107,.055) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(27,58,107,.055) 1px,transparent 1px);
-  background-size:60px 60px;pointer-events:none;z-index:0;}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 60px;height:76px;
-  border-bottom:.5px solid rgba(201,168,76,.18);
-  background:rgba(10,15,30,.96);backdrop-filter:blur(20px);}
-.nav-logo img{height:52px;width:auto;filter:drop-shadow(0 2px 16px rgba(201,168,76,.3));}
-.nav-links{display:flex;gap:44px;list-style:none;}
-.nav-links a{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--bone);text-decoration:none;transition:color .3s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-cta{font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  padding:11px 28px;border:.5px solid var(--gold);color:var(--gold);
-  background:transparent;cursor:pointer;font-family:'Instrument Sans',sans-serif;
-  transition:all .3s;}
-.nav-cta:hover{background:var(--gold);color:var(--navy);}
-
-/* ── HERO ── */
-.hero{position:relative;z-index:1;min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:100px 40px 80px;overflow:hidden;}
-
-/* radial glow atrás do logo */
-.hero::after{content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-58%);
-  width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);
-  pointer-events:none;}
-
-.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:48px;display:inline-block;
-  border:.5px solid rgba(201,168,76,.3);padding:7px 28px;}
-
-.hero-logo{position:relative;z-index:2;margin:0 auto 32px;}
-.hero-logo img{
-  height:clamp(220px,32vw,420px);width:auto;
-  filter:drop-shadow(0 16px 80px rgba(201,168,76,.25))
-         drop-shadow(0 4px 20px rgba(0,0,0,.8));
-  animation:floatLogo 6s ease-in-out infinite;}
-@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
-.hero-wordmark{display:flex;align-items:baseline;gap:2px;justify-content:center;margin-bottom:10px;}
-.hero-wordmark .vip{font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:clamp(32px,4.5vw,56px);letter-spacing:.3em;color:var(--ivory);}
-.hero-wordmark .seven{font-family:'Italiana',serif;
-  font-size:clamp(32px,4.5vw,56px);letter-spacing:.2em;color:var(--gold);}
-.hero-sub{font-size:11px;letter-spacing:7px;text-transform:uppercase;
-  color:var(--bone);margin-bottom:52px;}
-
-.hero-divider{display:flex;align-items:center;gap:20px;justify-content:center;margin-bottom:52px;}
-.hero-divider::before,.hero-divider::after{
-  content:'';flex:1;max-width:120px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold));}
-.hero-divider::after{background:linear-gradient(90deg,var(--gold),transparent);}
-.hero-divider span{font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
-
-.hero-tagline{font-family:'Lora',serif;font-style:italic;
-  font-size:clamp(15px,1.8vw,22px);color:var(--bone);
-  max-width:500px;line-height:1.9;margin-bottom:52px;}
-
-.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
-.btn-gold{font-family:'Instrument Sans',sans-serif;font-size:11px;
-  letter-spacing:3px;text-transform:uppercase;padding:16px 52px;
-  background:var(--gold);color:var(--navy);border:none;cursor:pointer;
-  font-weight:600;transition:all .35s;}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(201,168,76,.3);}
-.btn-ghost{font-family:'Instrument Sans',sans-serif;font-size:11px;
-  letter-spacing:3px;text-transform:uppercase;padding:16px 52px;
-  background:transparent;color:var(--ivory);
-  border:.5px solid rgba(245,240,232,.2);cursor:pointer;transition:all .35s;}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
-
-.scroll-hint{position:absolute;bottom:1px;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--bone);}
-.scroll-hint::after{content:'';width:1px;height:48px;
-  background:linear-gradient(to bottom,var(--gold),transparent);
-  animation:scrollFade 2.5s infinite;}
-@keyframes scrollFade{0%,100%{opacity:.1;transform:scaleY(.6)}60%{opacity:.8;transform:scaleY(1)}}
-
-/* fade-up */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.fu{animation:fadeUp .9s ease forwards;}
-.d1{animation-delay:.1s;opacity:0;}.d2{animation-delay:.25s;opacity:0;}
-.d3{animation-delay:.42s;opacity:0;}.d4{animation-delay:.6s;opacity:0;}
-.d5{animation-delay:.78s;opacity:0;}
-
-/* ── STATS ── */
-.stats{background:var(--mid);position:relative;z-index:1;
-  border-top:.5px solid rgba(201,168,76,.15);
-  border-bottom:.5px solid rgba(201,168,76,.15);
-  display:flex;justify-content:center;flex-wrap:wrap;}
-.stat{flex:1;min-width:180px;padding:48px 28px;text-align:center;
-  border-right:.5px solid rgba(201,168,76,.07);}
-.stat:last-child{border-right:none;}
-.stat-n{font-family:'Italiana',serif;font-size:60px;color:var(--gold);line-height:1;margin-bottom:8px;}
-.stat-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bone);}
-
-/* ── SECTION COMMON ── */
-section{position:relative;z-index:1;}
-.sec-head{text-align:center;padding:88px 40px 64px;}
-.sec-eye{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-.sec-title{font-family:'Italiana',serif;font-size:clamp(36px,5vw,66px);
-  color:var(--ivory);font-weight:400;line-height:1.1;}
-.sec-rule{width:72px;height:1px;background:var(--gold);margin:24px auto 0;}
-
-/* ── PRODUCTS ── */
-.products{padding:0 40px 88px;}
-.p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:2px;max-width:1280px;margin:0 auto;}
-.p-card{background:var(--mid);border:.5px solid rgba(201,168,76,.07);
-  padding:52px 44px;transition:all .45s;cursor:pointer;position:relative;overflow:hidden;}
-.p-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:0;transition:opacity .45s;}
-.p-card:hover{background:#0F1D32;}.p-card:hover::before{opacity:1;}
-.p-icon{width:40px;height:40px;margin-bottom:28px;opacity:.5;}
-.p-eye{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-.p-name{font-family:'Italiana',serif;font-size:30px;color:var(--ivory);margin-bottom:16px;}
-.p-desc{font-size:14px;line-height:1.85;color:var(--bone);margin-bottom:32px;}
-.p-link{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
-  text-decoration:none;border-bottom:.5px solid rgba(201,168,76,.3);padding-bottom:3px;}
-
-/* ── MANIFESTO ── */
-.manifesto{background:var(--deep);
-  border-top:.5px solid rgba(201,168,76,.12);
-  border-bottom:.5px solid rgba(201,168,76,.12);
-  padding:110px 40px;text-align:center;}
-.mf-logo img{height:240px;width:auto;
-  filter:drop-shadow(0 0 50px rgba(201,168,76,.2));margin-bottom:0;}
-.mf-stem{width:1px;height:64px;
-  background:linear-gradient(to bottom,var(--gold),transparent);margin:16px auto 40px;}
-.mf-quote{font-family:'Lora',serif;font-style:italic;
-  font-size:clamp(18px,2.5vw,32px);color:var(--ivory);
-  line-height:1.8;max-width:780px;margin:0 auto 32px;}
-.mf-quote em{color:var(--gold);font-style:normal;}
-.mf-attr{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--bone);}
-
-/* ── CATEGORIES ── */
-.cat-wrap{padding:88px 40px;}
-.cat-grid{display:grid;grid-template-columns:2fr 1fr 1fr;
-  grid-template-rows:300px 300px;gap:2px;max-width:1280px;margin:0 auto;}
-.cat{background:var(--mid);border:.5px solid rgba(201,168,76,.06);
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:32px;cursor:pointer;transition:background .4s;
-  position:relative;overflow:hidden;}
-.cat.tall{grid-row:span 2;}
-.cat:hover{background:#0F1D32;}
-.cat::after{content:attr(data-n);position:absolute;top:24px;right:24px;
-  font-size:11px;letter-spacing:2px;color:rgba(201,168,76,.2);}
-.cat-pat{position:absolute;inset:0;opacity:.03;
-  background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);
-  background-size:20px 20px;}
-.cat-name{font-family:'Italiana',serif;font-size:27px;color:var(--ivory);position:relative;z-index:1;}
-.cat-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--bone);margin-top:6px;position:relative;z-index:1;}
-
-/* ── MEMBERSHIP ── */
-.mem-wrap{padding:88px 40px;background:var(--mid);
-  border-top:.5px solid rgba(201,168,76,.1);}
-.mem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:2px;max-width:1280px;margin:0 auto;}
-.mem-card{padding:52px 44px;border:.5px solid rgba(201,168,76,.1);
-  background:var(--navy);position:relative;}
-.mem-card.feat{border-color:var(--gold);}
-.mem-badge{position:absolute;top:-1px;right:32px;background:var(--gold);
-  color:var(--navy);font-size:9px;letter-spacing:2px;text-transform:uppercase;
-  font-weight:600;padding:4px 16px;}
-.mem-tier{font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--bone);margin-bottom:14px;}
-.mem-name{font-family:'Italiana',serif;font-size:40px;color:var(--ivory);margin-bottom:8px;}
-.mem-name.g{color:var(--gold);}
-.mem-price{font-size:14px;color:var(--bone);margin-bottom:32px;}
-.mem-list{list-style:none;margin-bottom:40px;}
-.mem-list li{font-size:13px;color:var(--bone);padding:12px 0;
-  border-bottom:.5px solid rgba(245,240,232,.05);
-  display:flex;align-items:center;gap:12px;}
-.mem-list li::before{content:'◆';font-size:6px;color:var(--gold);flex-shrink:0;}
-
-/* ── FOOTER ── */
-footer{background:var(--deep);border-top:.5px solid rgba(201,168,76,.18);padding:72px 60px 44px;}
-.ft-top{display:flex;justify-content:space-between;align-items:flex-start;
-  margin-bottom:52px;flex-wrap:wrap;gap:40px;}
-.ft-logo img{height:90px;width:auto;filter:drop-shadow(0 2px 24px rgba(201,168,76,.2));margin-bottom:12px;}
-.ft-tagline{font-size:11px;letter-spacing:2px;color:var(--bone);text-transform:uppercase;}
-.ft-links{display:flex;gap:60px;flex-wrap:wrap;}
-.ft-col h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
-.ft-col ul{list-style:none;}
-.ft-col li{margin-bottom:10px;}
-.ft-col a{font-size:13px;color:var(--bone);text-decoration:none;transition:color .3s;}
-.ft-col a:hover{color:var(--gold);}
-.ft-bottom{border-top:.5px solid rgba(201,168,76,.08);padding-top:28px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.ft-bottom p{font-size:11px;color:var(--bone);letter-spacing:1px;}
-.ft-bottom span{color:var(--gold);}
-
-@media(max-width:768px){
-  nav{padding:0 24px;}.nav-links{display:none;}
-  .cat-grid{grid-template-columns:1fr;grid-template-rows:auto;}
-  .cat.tall{grid-row:span 1;}
-  .ft-top{flex-direction:column;}
-}
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
@@ -310,6 +91,249 @@ footer{background:var(--deep);border-top:.5px solid rgba(201,168,76,.18);padding
         <a href="#" class="p-link">Ativar acesso</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- VITRINE DE PRODUTOS -->
+<section id="vitrine">
+  <div class="sec-head">
+    <p class="sec-eye">Vitrine Exclusiva</p>
+    <h2 class="sec-title">Nossos Produtos</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="vitrine-grid">
+
+    <!-- 01 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/rolex/rolex-daytona-panda.png" alt="Rolex Daytona Panda">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <rect x="8" y="16" width="48" height="34" rx="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <rect x="22" y="50" width="20" height="4" rx="1" fill="rgba(201,168,76,.3)"/>
+          <circle cx="32" cy="33" r="8" stroke="#C9A84C" stroke-width="1"/>
+          <line x1="8" y1="24" x2="56" y2="24" stroke="rgba(201,168,76,.4)" stroke-width=".8"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Rolex Daytona Panda</h3>
+        <p class="vcard-price">R$ 1.699,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/rolex/rolex-submarine-hulk.png" alt="Rolex Submarine Hulk">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="18" stroke="#C9A84C" stroke-width="1.2"/>
+          <circle cx="32" cy="32" r="10" stroke="#C9A84C" stroke-width=".8"/>
+          <circle cx="32" cy="32" r="3" fill="rgba(201,168,76,.4)"/>
+          <line x1="32" y1="14" x2="32" y2="8" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="44" y1="20" x2="48" y2="16" stroke="#C9A84C" stroke-width="1"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Rolex Submarine Hulk</h3>
+        <p class="vcard-price">R$ 1.499,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/rolex/rolex-submariner-hulk-jubilee.png" alt="Rolex Submariner Hulk Jubilee">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <path d="M20 48 L20 28 Q20 16 32 12 Q44 16 44 28 L44 48" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <line x1="14" y1="48" x2="50" y2="48" stroke="#C9A84C" stroke-width="1.5"/>
+          <ellipse cx="32" cy="22" rx="6" ry="8" fill="rgba(201,168,76,.15)" stroke="#C9A84C" stroke-width=".8"/>
+          <line x1="32" y1="48" x2="32" y2="52" stroke="#C9A84C" stroke-width="1"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Rolex Submariner Hulk Jubilee</h3>
+        <p class="vcard-price">R$ 1.499,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/omega/omega-seamaster-007.png" alt="Omega Seamaster 007">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <rect x="18" y="14" width="28" height="36" rx="4" stroke="#C9A84C" stroke-width="1.2"/>
+          <circle cx="32" cy="32" r="8" fill="rgba(201,168,76,.1)" stroke="#C9A84C" stroke-width=".8"/>
+          <path d="M26 26 Q32 20 38 26" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+          <line x1="28" y1="46" x2="36" y2="46" stroke="#C9A84C" stroke-width="1"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Omega Seamaster 007</h3>
+        <p class="vcard-price">R$ 1.490,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/breitling/breitling-couro-automatico-white.png" alt="Breitling Couro Automático White">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <path d="M12 28 L32 14 L52 28 L52 52 L12 52 Z" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <rect x="24" y="36" width="16" height="16" rx="1" stroke="#C9A84C" stroke-width=".8"/>
+          <path d="M24 36 L24 32 Q24 28 32 28 Q40 28 40 32 L40 36" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Breitling Couro Automático White</h3>
+        <p class="vcard-price">R$ 1.890,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/breitling/breitling-navitimer-automatic-white-couro.png" alt="Breitling Navitimer Automático White Couro">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <path d="M16 32 Q16 20 32 20 Q48 20 48 32 Q48 44 32 44 Q16 44 16 32Z" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <line x1="8" y1="32" x2="16" y2="32" stroke="#C9A84C" stroke-width="1"/>
+          <line x1="48" y1="32" x2="56" y2="32" stroke="#C9A84C" stroke-width="1"/>
+          <circle cx="32" cy="32" r="4" fill="rgba(201,168,76,.3)"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Breitling Navitimer Automático White Couro</h3>
+        <p class="vcard-price">R$ 1.350,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/watches/omega/omega-snoopy-50th.png" alt="Omega Snoopy 50th">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <rect x="14" y="20" width="16" height="26" rx="2" stroke="#C9A84C" stroke-width="1.2"/>
+          <rect x="34" y="20" width="16" height="26" rx="2" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M18 20 Q18 14 22 14 Q26 14 26 20" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+          <path d="M38 20 Q38 14 42 14 Q46 14 46 20" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+          <line x1="30" y1="28" x2="34" y2="28" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Relojoaria</span>
+        <h3 class="vcard-name">Omega Snoopy 50th</h3>
+        <p class="vcard-price">R$ 1.790,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/tenis/nike/nike-air-force-1-mid.jpeg" alt="Nike Air Force 1 Mid">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <path d="M20 46 L20 26 Q20 18 32 18 Q44 18 44 26 L44 46" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <ellipse cx="32" cy="46" rx="14" ry="4" stroke="#C9A84C" stroke-width=".8"/>
+          <circle cx="32" cy="30" r="6" fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width=".8"/>
+          <line x1="32" y1="14" x2="32" y2="18" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Tênis</span>
+        <h3 class="vcard-name">Nike Air Force 1 Mid</h3>
+        <p class="vcard-price">R$ 450,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 09 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/tenis/nike/nike-shox-tl-black-red.jpeg" alt="Nike Shox TL Black Red">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <rect x="12" y="22" width="40" height="28" rx="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <line x1="12" y1="34" x2="52" y2="34" stroke="rgba(201,168,76,.4)" stroke-width=".8"/>
+          <circle cx="32" cy="40" r="3" fill="rgba(201,168,76,.3)"/>
+          <rect x="20" y="27" width="10" height="4" rx="1" fill="rgba(201,168,76,.15)" stroke="#C9A84C" stroke-width=".6"/>
+          <line x1="26" y1="16" x2="38" y2="16" stroke="#C9A84C" stroke-width="1"/>
+          <line x1="32" y1="16" x2="32" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Tênis</span>
+        <h3 class="vcard-name">Nike Shox TL Black Red</h3>
+        <p class="vcard-price">R$ 550,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/tenis/nike/nike-shox-tl-black.jpeg" alt="Nike Shox TL Black">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <rect x="16" y="22" width="32" height="22" rx="2" stroke="#C9A84C" stroke-width="1.2"/>
+          <line x1="16" y1="30" x2="48" y2="30" stroke="rgba(201,168,76,.4)" stroke-width=".8"/>
+          <path d="M24 44 L20 50 L44 50 L40 44" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+          <circle cx="26" cy="26" r="2" fill="rgba(201,168,76,.4)"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Tênis</span>
+        <h3 class="vcard-name">Nike Shox TL Black</h3>
+        <p class="vcard-price">R$ 550,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/tenis/mcqueen/alexander-mcqueen-oversized-snaked-black.jpeg" alt="Alexander McQueen Oversized Snaked Black">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <rect x="14" y="28" width="36" height="24" rx="2" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M24 28 L24 22 Q24 14 32 14 Q40 14 40 22 L40 28" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+          <rect x="28" y="36" width="8" height="8" rx="1" fill="rgba(201,168,76,.2)" stroke="#C9A84C" stroke-width=".8"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Tênis</span>
+        <h3 class="vcard-name">Alexander McQueen Oversized Snaked Black</h3>
+        <p class="vcard-price">R$ 950,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="vcard">
+      <div class="vcard-img">
+        <img src="assets/images/products/tenis/mcqueen/alexander-mcqueen-oversized-snaked-white-blue.jpeg" alt="Alexander McQueen Oversized Snaked White Blue">
+        <!-- <svg class="vcard-placeholder" viewBox="0 0 64 64" fill="none">
+          <path d="M24 48 L24 28 Q24 16 32 16 Q40 16 40 28 L40 48" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+          <ellipse cx="32" cy="48" rx="12" ry="3" stroke="#C9A84C" stroke-width=".8"/>
+          <path d="M26 24 Q32 30 38 24" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+          <line x1="32" y1="10" x2="32" y2="16" stroke="#C9A84C" stroke-width="1"/>
+          <circle cx="32" cy="8" r="2" fill="rgba(201,168,76,.4)"/>
+        </svg> -->
+      </div>
+      <div class="vcard-body">
+        <span class="vcard-cat">Tênis</span>
+        <h3 class="vcard-name">Alexander McQueen Oversized Snaked White/Blue</h3>
+        <p class="vcard-price">R$ 980,00</p>
+        <a href="#" class="vcard-btn">Comprar Agora</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
